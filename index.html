@@ -5,59 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zurich Night Adventure</title>
     <style>
-        /* This makes the page look good on phones */
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             justify-content: center; 
             height: 100vh; 
             margin: 0;
-            background: #000; 
-            color: #fff; 
+            
+            /* Light Red Background */
+            background-color: #ff6b6b; 
+            
+            /* Electric Neon Yellow Text */
+            color: #ccff00; 
+            
             text-align: center; 
-            padding: 20px; 
+            padding: 30px; 
+            
+            /* This adds a black outline so the yellow pops against the red */
+            text-shadow: 2px 2px 0px #000000;
         }
+
         #sentence { 
-            font-size: 1.8rem; 
-            font-weight: bold;
-            margin-bottom: 40px; 
-            line-height: 1.4;
+            font-size: 2.5rem; /* Larger text for impact */
+            font-weight: 900;  /* Extra bold */
+            line-height: 1.2;
+            text-transform: uppercase; /* Makes it look like a flyer */
         }
-        button { 
-            padding: 18px 40px; 
-            font-size: 1.2rem; 
-            background: #007AFF; /* Nice "Swiss" blue or change to #ff0055 for pink */
-            border: none; 
-            color: white; 
-            border-radius: 15px; 
-            cursor: pointer; 
+
+        /* Small instruction at the bottom */
+        .hint {
+            margin-top: 60px;
+            font-size: 1rem;
+            color: white;
+            text-shadow: 1px 1px 0px #000;
             font-weight: bold;
+            letter-spacing: 1px;
         }
-        button:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
-    <div id="sentence">Tap the button to start...</div>
-    <button onclick="getRandom()">Gimme a Dare!</button>
+    <div id="sentence"></div>
+    
+    <div class="hint">SCAN AGAIN FOR NEW FATE</div>
 
     <script>
-        // THIS IS YOUR DATABASE - You can add your 500 sentences here
+        // YOUR DATABASE
+        // Paste your 500 sentences inside these brackets
         const database = [
-            "Truth: What is the most expensive thing you've bought in Zurich?",
-            "Dare: Ask the bartender for their favorite drink recommendation.",
-            "Wisdom: The best nights start with a 'yes'.",
-            "Dare: Find someone wearing black and high-five them."
-            // Simply add more sentences inside quotes followed by a comma
+            "What is the most expensive thing you've bought in Zurich?",
+            "Ask the bartender for their favorite drink recommendation.",
+            "The best nights start with a 'yes'.",
+            "Find someone wearing black and high-five them."
         ];
 
-        function getRandom() {
-            const randomIndex = Math.floor(Math.random() * database.length);
-            const selectedSentence = database[randomIndex];
-            document.getElementById('sentence').innerText = selectedSentence;
-        }
+        // This runs automatically the moment the page opens
+        const randomIndex = Math.floor(Math.random() * database.length);
+        const selectedSentence = database[randomIndex];
+        document.getElementById('sentence').innerText = selectedSentence;
+
     </script>
 </body>
 </html>
