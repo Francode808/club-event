@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zurich Night Adventure</title>
+    <style>
+        /* This makes the page look good on phones */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0;
+            background: #000; 
+            color: #fff; 
+            text-align: center; 
+            padding: 20px; 
+        }
+        #sentence { 
+            font-size: 1.8rem; 
+            font-weight: bold;
+            margin-bottom: 40px; 
+            line-height: 1.4;
+        }
+        button { 
+            padding: 18px 40px; 
+            font-size: 1.2rem; 
+            background: #007AFF; /* Nice "Swiss" blue or change to #ff0055 for pink */
+            border: none; 
+            color: white; 
+            border-radius: 15px; 
+            cursor: pointer; 
+            font-weight: bold;
+        }
+        button:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+
+    <div id="sentence">Tap the button to start...</div>
+    <button onclick="getRandom()">Gimme a Dare!</button>
+
+    <script>
+        // THIS IS YOUR DATABASE - You can add your 500 sentences here
+        const database = [
+            "Truth: What is the most expensive thing you've bought in Zurich?",
+            "Dare: Ask the bartender for their favorite drink recommendation.",
+            "Wisdom: The best nights start with a 'yes'.",
+            "Dare: Find someone wearing black and high-five them."
+            // Simply add more sentences inside quotes followed by a comma
+        ];
+
+        function getRandom() {
+            const randomIndex = Math.floor(Math.random() * database.length);
+            const selectedSentence = database[randomIndex];
+            document.getElementById('sentence').innerText = selectedSentence;
+        }
+    </script>
+</body>
+</html>
